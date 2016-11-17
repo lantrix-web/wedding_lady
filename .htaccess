@@ -1,0 +1,8 @@
+AddDefaultCharset UTF-8
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^.htaccess$ - [F]
+RewriteCond %{REQUEST_FILENAME} !-d [OR]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?id=$1 [L,NC]

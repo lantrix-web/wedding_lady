@@ -1,0 +1,44 @@
+<h1>Регистрация</h1>
+
+<?php
+if(!empty($data))
+{
+    foreach ($data as $error)
+    {
+        echo $error."<br>";
+    }
+}
+
+
+?>
+<div class="container">
+    <form action="" method="post" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="username">Логин</label>
+            <div class="controls">
+                <input type="text" id="username" placeholder="username" name="username">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Пароль</label>
+            <div class="controls">
+                <input type="text" id="password" placeholder="password" name="password">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="email">E-mail</label>
+            <div class="controls">
+                <input type="email" id="email" placeholder="email" name="email">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="city">Город</label>
+            <div class="controls">
+                <input type="text" id="city" placeholder="city" name="city">
+            </div>
+        </div>
+        <p>Мужчина  <input type="radio" name="role" value="man" ></p>
+        <p>Женщина  <input type="radio" name="role" value="woman" checked></p>
+        <p><input type="submit" value="Регистрация"></p>
+    </form>
+</div>
