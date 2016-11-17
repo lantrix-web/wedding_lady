@@ -80,6 +80,7 @@ $(document).ready(function () {
                 url: '/profile/' + id,
                 data: 'link=' + link + '&id=' + id,
                 success: function (txt) {
+                    alert(txt);
                     if (txt == 'success') {
                         $('#' + ph_id).remove();
                     }
@@ -100,9 +101,11 @@ $(document).ready(function () {
             url:"/profile/"+user_id,
             data:'photo_id='+photo_id+'&user_id='+user_id+'&img_src='+src,
             success:function (suck) {
+                alert(suck);
                if(suck == 'success')
                {
-                   alert('Установлен новый аватар!');
+                   $('.profile-main-avatar').css('background-image', 'url('+src+')');
+                   $('.login-avatar a img').attr('src', src);
                }
             }
 

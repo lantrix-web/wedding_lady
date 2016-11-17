@@ -142,15 +142,10 @@ class profileController extends Controller
         $model = new Profile();
 
         $user = $model->getUserInfoById($id);
-/*<<<<<<< HEAD
-        echo "string";
-        if($user == false)
-        {
-=======*/
+
 
 
         if ($user == false) {
-//>>>>>>> origin/profiles
             header('Location:/404');
         }
 

@@ -7,6 +7,7 @@
 class Profile extends Model
 {
 
+
     public function getUserRole($id)
     {
         $sql = 'SELECT `role` FROM `users` WHERE `user_id` = :id';
@@ -322,14 +323,9 @@ class Profile extends Model
 
     public function setAvatar($user_id, $avatar_id)
     {
-        $del_sql = "DELETE FROM `user_avatars` WHERE `user_id` = :user_id";
-
         $query = $this->db;
-        $result = $query->prepare($del_sql);
-        $result->bindParam(":user_id", $user_id);
-        $result->execute();
-
-        $insert_sql = "INSERT INTO `meeting`.`user_avatars` (`user_id`, `avatar_id`) VALUES (:user_id, :avatar_id)";
+        $insert_sql = "DELETE FROM `user_avatars` WHERE `user_id` = :user_id;
+                        INSERT INTO `user_avatars` (`user_id`, `avatar_id`) VALUES (:user_id, :avatar_id)";
 
         $result = $query->prepare($insert_sql);
         $result->bindParam(':user_id', $user_id);
@@ -337,11 +333,12 @@ class Profile extends Model
         if($result->execute())
         {
 
-            return true;
 
+            return true;
         }
         else
         {
+
             return false;
         }
 
@@ -429,7 +426,14 @@ class Profile extends Model
         $result = $query->prepare($sql);
         $result->bindParam(':id', $id);
         $result->bindParam(':img', $img);
-        $result->execute();
+        if($result->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
     }
 

@@ -226,6 +226,9 @@ if(($_SERVER['REQUEST_URI']) != '/main' && ($_SERVER['REQUEST_URI'] != '/ladies'
 require 'application/views/'.$controller.'/'.$content_view.'.php';
 
 ?>
+<?php
+if(($_SERVER['REQUEST_URI']) != '/main' && ($_SERVER['REQUEST_URI'] != '/ladies'))
+{?>
 <!-- ======================== FOOTER START ======================== -->
 
 <footer id="footer" class="page-footer">
@@ -365,8 +368,7 @@ require 'application/views/'.$controller.'/'.$content_view.'.php';
 
 <!-- MOBILE MENU END -->
 
-
-
+<?php } ?>
 <!-- Optimized loading JS Start -->
 <script>var scr = {"scripts":[
         {"src" : "/js/libs.min.js", "async" : false},
